@@ -1,4 +1,3 @@
-color-converter
-===============
+## hex-rgb-hsl color converter
 
-Another hex-rgb-hsl javascript color converter
+Build using [Values.js](https://github.com/noeldelgado/Values.js).
