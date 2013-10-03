@@ -18,7 +18,7 @@ a {
 
 .main-content {
   display: table;
-  width: 500px;
+  max-width: 500px;
   height: 100%;
   vertical-align: middle;
   margin: 0 auto;
@@ -54,11 +54,31 @@ input {
   }
 }
 
-.by {
+.footer {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 15px;
+  right: 20px;
   font-size: 9px;
   text-transform: uppercase;
   color: inherit;
+  p {
+    margin: 0 5px;
+    display: inline-block;
+  }
+}
+
+@media all and (max-width: 500px) {
+  input {
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .footer {
+    width: 100%;
+    text-align: center;
+    right: 0;
+    p {
+      display: block;
+      margin: 0;
+    }
+  }
 }

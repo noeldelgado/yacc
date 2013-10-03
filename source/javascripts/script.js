@@ -10,11 +10,12 @@
             rgb: document.querySelector('.js-rgb'),
             hsl: document.querySelector('.js-hsl'),
             wrapper: document.querySelector('.wrapper'),
-            link: document.querySelector('.by a'),
+            links: document.querySelectorAll('.footer a'),
             body: document.body
         },
 
         init : function() {
+            this.UI._links = [].slice.call(this.UI.links, 0);
             this.bindEvents();
         },
 
@@ -72,7 +73,10 @@
             this.UI.body.style.backgroundColor = bgClr;
             this.UI.body.style.color = txtClr.hex;
             this.UI.wrapper.style.borderBottomColor = 'rgba('+rgb+', 0.5)';
-            this.UI.link.style.color = txtClr.hex;
+            this.UI._links.forEach(function(e, i) {
+                console.log(e)
+                e.style.color = txtClr.hex;
+            });
         }
     };
 
