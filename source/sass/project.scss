@@ -1,19 +1,24 @@
-@import 'base';
+@import 'compass', 'normalize', url(http://fonts.googleapis.com/css?family=Lato:100,400);
 
-@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+* {
+  @include box-sizing(border-box);
+}
 
 html,
 body {
   height: 100%;
-  @include transition(
-    background-color 200ms linear,
-    color 200ms linear,
-    border-color 200ms linear
-  );
+}
+
+body {
+  @include transform(translateZ(0));
+  font: 12px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  @include transition(color 400ms ease-in-out, background-color 400ms ease-in-out);
+  color: #999;
 }
 
 a {
   text-decoration: none;
+  color: #ccc;
 }
 
 .main-content {
@@ -22,12 +27,12 @@ a {
   height: 100%;
   vertical-align: middle;
   margin: 0 auto;
+}
 
-  .wrapper {
-    display: table-cell;
-    vertical-align: middle;
-    border-bottom-color: rgba(0,0,0,.25);
-  }
+.main-container--inner {
+  display: table-cell;
+  vertical-align: middle;
+  border-bottom-color: rgba(0,0,0,.25);
 }
 
 input {
@@ -41,16 +46,13 @@ input {
   line-height: 1.5em;
   font-family: 'Lato', sans-serif;
   font-weight: 100;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   color: inherit;
   text-align: center;
+  outline: none;
 
   &::-webkit-input-placeholder {
     color: inherit;
-  }
-
-  &:focus {
-    outline: none;
   }
 }
 
@@ -61,6 +63,7 @@ input {
   font-size: 9px;
   text-transform: uppercase;
   color: inherit;
+
   p {
     margin: 0 5px;
     display: inline-block;
@@ -68,10 +71,15 @@ input {
 }
 
 @media all and (max-width: 500px) {
+  body {
+    padding: 0 20px;
+  }
+
   input {
     font-size: 30px;
     font-weight: 400;
   }
+
   .footer {
     width: 100%;
     text-align: center;
