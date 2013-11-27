@@ -31,7 +31,7 @@
             if (Values.Utils.isHEX(this.value)) {
                 Color.setColor( this.value );
                 colorFormats.updateUIColors();
-                colorFormats.UI.rgb.value = Color.rgb;
+                colorFormats.UI.rgb.value = Color.rgba;
                 colorFormats.UI.hsl.value = Color.hsl;
                 return true;
             }
@@ -58,17 +58,17 @@
         updateUIColors : function updateUIColors() {
             var bgClr   = Color.hex,
                 txtClr  = (Color.brightness > 50)
-                    ? Color.lightness( -40 )
-                    : Color.lightness( 40 ),
-                rgb     = txtClr._rgb.r+','+txtClr._rgb.g+','+txtClr._rgb.b;
+                    ? Color.lightness(-40)
+                    : Color.lightness(40);
 
             this.UI.body.style.backgroundColor = bgClr;
             this.UI.body.style.color = txtClr.hex;
-            this.UI.wrapper.style.borderBottomColor = 'rgba('+rgb+', 0.5)';
+            this.UI.wrapper.style.borderBottomColor = Values.Utils.RGBA(Color.hex, '0.5');
+
             this.UI._links.forEach(function(el) {
                 el.style.color = txtClr.hex;
             });
-            bgClr = txtClr = rgb = null;
+            bgClr = txtClr = null;
             return this;
         }
     };
