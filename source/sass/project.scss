@@ -19,6 +19,8 @@ body {
 a {
   text-decoration: none;
   color: #ccc;
+  @include transition(opacity 400ms);
+  &:hover {opacity: .7}
 }
 
 .main-content {

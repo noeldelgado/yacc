@@ -17,7 +17,14 @@
 
         init : function init() {
             this.UI._links = [].slice.call(this.UI.links, 0);
+            this.hash = global.location.hash;
             this.bindEvents();
+
+            if (Values.Utils.isHEX(this.hash)) {
+                this.UI.hex.value = this.hash;
+                this.updateFromHex(this.hash);
+            } else global.location.hash = '';
+
             return this;
         },
 
@@ -27,12 +34,10 @@
             return this;
         },
 
+
         hexKeyUpEvent : function hexKeyUpEvent() {
             if (Values.Utils.isHEX(this.value)) {
-                Color.setColor( this.value );
-                colorFormats.updateUIColors();
-                colorFormats.UI.rgb.value = Color.rgba;
-                colorFormats.UI.hsl.value = Color.hsl;
+                colorFormats.updateFromHex(this.value);
                 return true;
             }
 
@@ -43,10 +48,7 @@
 
         rgbKeyUpEvent : function rgbKeyUpEvent () {
             if (Values.Utils.isRGB(this.value)) {
-                Color.setColor( this.value );
-                colorFormats.updateUIColors();
-                colorFormats.UI.hex.value = Color.hex;
-                colorFormats.UI.hsl.value = Color.hsl;
+                colorFormats.updateFromRGB(this.value);
                 return true;
             }
 
@@ -55,11 +57,32 @@
             return false;
         },
 
+        updateFromHex : function updateFromHex (value) {
+            Color.setColor(value);
+            this.updateUIColors();
+            this.UI.rgb.value = Color.rgba;
+            this.UI.hsl.value = Color.hsl;
+            this.updateHash(Color.hex);
+            value = null;
+        },
+
+        updateFromRGB : function updateFromRGB (value) {
+            Color.setColor(value);
+            this.updateUIColors();
+            this.UI.hex.value = Color.hex;
+            this.UI.hsl.value = Color.hsl;
+            this.updateHash(Color.hex);
+            value = null;
+        },
+
+        updateHash : function updateHash (value) {
+            this.hash = value;
+            global.location.hash = this.hash;
+        },
+
         updateUIColors : function updateUIColors() {
             var bgClr   = Color.hex,
-                txtClr  = (Color.brightness > 50)
-                    ? Color.lightness(-40)
-                    : Color.lightness(40);
+                txtClr  = (Color.brightness > 50) ? Color.lightness(-40) : Color.lightness(40);
 
             this.UI.body.style.backgroundColor = bgClr;
             this.UI.body.style.color = txtClr.hex;
