@@ -31,6 +31,7 @@
         bindEvents : function bindEvents() {
             addEvent(this.UI.hex, "keyup", this.hexKeyUpEvent);
             addEvent(this.UI.rgb, "keyup", this.rgbKeyUpEvent);
+            addEvent(this.UI.hsl, "keyup", this.hslKeyUpEvent);
             return this;
         },
 
@@ -57,13 +58,23 @@
             return false;
         },
 
+        hslKeyUpEvent : function hslKeyUpEvent() {
+            if (Values.Utils.isHSL(this.value)) {
+                colorFormats.updateFromHSL(this.value);
+                return this;
+            }
+
+            colorFormats.UI.hex.value = '';
+            colorFormats.UI.rgb.value = '';
+            return false;
+        },
+
         updateFromHex : function updateFromHex (value) {
             Color.setColor(value);
             this.updateUIColors();
             this.UI.rgb.value = Color.rgba;
             this.UI.hsl.value = Color.hsl;
             this.updateHash(Color.hex);
-            value = null;
         },
 
         updateFromRGB : function updateFromRGB (value) {
@@ -72,7 +83,14 @@
             this.UI.hex.value = Color.hex;
             this.UI.hsl.value = Color.hsl;
             this.updateHash(Color.hex);
-            value = null;
+        },
+
+        updateFromHSL : function updateFromHSL(value) {
+            Color.setColor(value);
+            this.updateUIColors();
+            this.UI.hex.value = Color.hex;
+            this.UI.rgb.value = Color.rgba;
+            this.updateHash(Color.hex);
         },
 
         updateHash : function updateHash (value) {
