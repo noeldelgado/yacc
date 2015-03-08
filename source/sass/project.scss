@@ -41,7 +41,7 @@ input {
   display: block;
   border: none;
   border-bottom-width: 1px;
-  border-bottom-style: dotted;
+  border-bottom-style: solid;
   border-bottom-color: inherit;
   width: 100%;
   font-size: 45px;
@@ -52,6 +52,7 @@ input {
   color: inherit;
   text-align: center;
   outline: none;
+  @include transition(border-color 400ms ease-in-out);
 
   &::-webkit-input-placeholder {
     color: inherit;

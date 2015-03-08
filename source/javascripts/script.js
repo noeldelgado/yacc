@@ -72,24 +72,24 @@
         updateFromHex : function updateFromHex (value) {
             Color.setColor(value);
             this.updateUIColors();
-            this.UI.rgb.value = Color.rgba;
-            this.UI.hsl.value = Color.hsl;
+            this.UI.rgb.value = Color.rgbString();
+            this.UI.hsl.value = Color.hslString();
             this.updateHash(Color.hex);
         },
 
         updateFromRGB : function updateFromRGB (value) {
             Color.setColor(value);
             this.updateUIColors();
-            this.UI.hex.value = Color.hex;
-            this.UI.hsl.value = Color.hsl;
+            this.UI.hex.value = Color.hexString();
+            this.UI.hsl.value = Color.hslString();
             this.updateHash(Color.hex);
         },
 
         updateFromHSL : function updateFromHSL(value) {
             Color.setColor(value);
             this.updateUIColors();
-            this.UI.hex.value = Color.hex;
-            this.UI.rgb.value = Color.rgba;
+            this.UI.hex.value = Color.hexString();
+            this.UI.rgb.value = Color.rgbString();
             this.updateHash(Color.hex);
         },
 
@@ -99,12 +99,16 @@
         },
 
         updateUIColors : function updateUIColors() {
-            var bgClr   = Color.hex,
-                txtClr  = (Color.brightness > 50) ? Color.lightness(-40) : Color.lightness(40);
+            var isLight, bgClr, txtClr, borderClr;
+
+            isLight = (Color.getBrightness() > 50);
+            bgClr = Color.hexString();
+            txtClr = isLight ? Color.shade(50) : Color.tint(50);
+            borderClr = isLight ? Color.shade(10) : Color.tint(10);
 
             this.UI.body.style.backgroundColor = bgClr;
-            this.UI.body.style.color = txtClr.hex;
-            this.UI.wrapper.style.borderBottomColor = Values.Utils.RGBA(Color.hex, '0.5');
+            this.UI.body.style.color = txtClr.hexString();
+            this.UI.wrapper.style.borderBottomColor = borderClr.hexString();
 
             this.UI._links.forEach(function(el) {
                 el.style.color = txtClr.hex;
