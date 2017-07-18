@@ -119,6 +119,17 @@
       this.UI._links.forEach(function(el) {
         el.style.color = txtClr.hex;
       });
+
+      if (Syringe.rules) {
+        Syringe.remove('::selection');
+      }
+
+      Syringe.inject({
+        '::selection': {
+          background: isLight ? 'rgba(0,0,0,.1)' : 'rgba(255,255,255,.2)'
+        }
+      });
+
       bgClr = txtClr = null;
 
       return this;

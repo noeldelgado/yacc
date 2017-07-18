@@ -1,0 +1,37 @@
+{
+  "name": "syringe.js",
+  "version": "0.4.0",
+  "main": "syringe.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests",
+    "src",
+    "test",
+    "Gruntfile.js",
+    "LICENSE",
+    "package.json"
+  ],
+  "homepage": "https://github.com/noeldelgado/Syringe.js",
+  "authors": [
+    "Noel Delgado <auhcsei@gmail.com>"
+  ],
+  "description": "Inject additional CSS at runtime",
+  "keywords": [
+    "syringe",
+    "injection",
+    "css"
+  ],
+  "license": "MIT",
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.0",
+    "commit": "0ae31f290f5542cbec7970cbc5520833134463f5"
+  },
+  "_source": "https://github.com/noeldelgado/Syringe.git",
+  "_target": "~0.4.0",
+  "_originalSource": "syringe.js",
+  "_direct": true
+}

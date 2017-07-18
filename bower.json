@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "values.js": "~1.0.1"
+    "values.js": "~1.0.1",
+    "syringe.js": "~0.4.0"
   }
 }
