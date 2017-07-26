@@ -3,15 +3,13 @@ module.exports = (grunt) => {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    compass: {
+    sass: {
       dist: {
         options: {
-          httpPath: '/',
-          sassDir: 'source/sass',
-          cssDir: 'source/stylesheets',
-          imagesDir: 'images',
-          outputStyle: 'compressed',
-          relativeAssets: true
+          style: 'compact'
+        },
+        files: {
+          'source/stylesheets/project.css': 'source/sass/project.scss'
         }
       }
     },
@@ -19,7 +17,7 @@ module.exports = (grunt) => {
     watch: {
       css: {
         files: ['source/sass/**/*.scss'],
-        tasks: ['compass'],
+        tasks: ['sass'],
         options: {
           livereload: true
         }
