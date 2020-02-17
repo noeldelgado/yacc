@@ -1,7 +1,7 @@
 node_modules
-source
-.DS_Store
 package-lock.json
+src/asstes/svg-sprite-symbol
 .tarima
 .nvmrc
 .ruby-version
+.DS_Store
