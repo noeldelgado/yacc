@@ -1,0 +1,51 @@
+/**
+---
+$bundle: true
+---
+*/
+@import '@simonwep/pickr/dist/themes/nano.min.css';
+@import '../lib/vendor-overrides/github-corners';
+@import '../lib/vendor-overrides/pickr';
+@import '../lib/components/buttons';
+@import '../lib/components/color-item';
+@import '../lib/components/inputs';
+@import '../lib/components/toast';
+@import '../lib/utils';
+@import '../lib/style';
+
+:root {
+  --cc-main-color: #fff;
+  --cc-text-color: #000;
+  --cc-border-color: #e6e6e6;
+
+  --cc-transition-timing: ease-out;
+  --cc-transition-duration: 260ms;
+
+  font-family: system-ui;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  user-select: none;
+  font-kerning: none;
+}
+
+a {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+}
+
+svg {
+  fill: currentColor;
+}
+
+[disabled] {
+  opacity: 0.5;
+}

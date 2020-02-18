@@ -1,0 +1,25 @@
+.cc-input {
+  border: none;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: rgba(0, 0, 0, 0);
+  color: inherit;
+  outline: none;
+  text-overflow: ellipsis;
+
+  &:invalid,
+  &[aria-invalid="true"] {
+    text-decoration: underline wavy red;
+    text-decoration-skip-ink: none;
+  }
+
+  &::placeholder {
+    color: inherit;
+    opacity: 0.25;
+  }
+}

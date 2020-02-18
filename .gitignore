@@ -1,6 +1,6 @@
 node_modules
 package-lock.json
-src/asstes/svg-sprite-symbol
+src/assets/svg-sprite-symbol/
 .tarima
 .nvmrc
 .ruby-version
