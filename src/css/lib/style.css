@@ -46,6 +46,20 @@ header {
   font-style: italic;
 }
 
+.logo {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 50%;
+  background-image:
+    radial-gradient(circle at top center, #F00 50%, transparent 100%),
+    radial-gradient(circle at bottom right, #0F0 50%, transparent 100%),
+    radial-gradient(circle at bottom left, #00F 50%, transparent 100%)
+  ;
+  background-blend-mode: lighten;
+  box-shadow: 0 0 0 1px var(--cc-border-color);
+}
+
 .cc-extra-items {
   padding: 1rem 0 0 0;
 }
