@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.1.0] - 2020-02-18
 ### Added
 - HWB color model
 - feColorMatrix’s values
@@ -31,3 +33,6 @@
 
 ## 2013-10-03
 - Initial release
+
+[Unreleased]: https://github.com/noeldelgado/color-converter/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/noeldelgado/color-converter/releases/tag/v0.1.0
