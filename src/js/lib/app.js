@@ -56,7 +56,10 @@ export default class App {
      * @return {Object} default configuraton values
      */
     static get defaultConfig() {
-        return { color: '#FFFFFF' }
+        return {
+            color: '#FFFFFF',
+            title: document.title
+        }
     }
 
     /**
@@ -257,7 +260,8 @@ export default class App {
         document.documentElement.style.setProperty('--cc-border-color', borderColor.toString());
 
         if (!preventHistoryUpdate) {
-            window.history.pushState({ color: hex }, null, `/${hex}`);
+            history.pushState({ color: hex }, null, `/${hex}`);
+            document.title = `${app.config.title} - ${hex}`;
         }
 
         return app;
