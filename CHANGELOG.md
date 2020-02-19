@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.2] - [#3](../../pull/3) - 2020-02-18
+### Changed
+- Fix site.webmanifest paths
+- Fix history navigation
+
 ## [0.1.1] - [#2](../../pull/2) - 2020-02-18
 ### Changed
 - Fix assets path
@@ -38,6 +43,7 @@
 ## 2013-10-03
 - Initial release
 
-[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/noeldelgado/yacc/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/noeldelgado/yacc/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/noeldelgado/yacc/releases/tag/v0.1.0
