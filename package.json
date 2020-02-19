@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "yet-another-color-converter",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "start": "npm run watch",
     "watch": "tarima watch src",
@@ -10,17 +10,8 @@
     "min-js": "uglify -s build/js/main.js -o build/js/main.js",
     "svg": "svg-sprite -s --symbol-dest=svg-sprite-symbol --symbol-prefix=.svg- --ss=sprite.svg --si --sx --shape-id-generator=svg-%s --dest=src/assets src/assets/svg/*.svg"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/noeldelgado/color-converter.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/noeldelgado/color-converter/issues"
-  },
-  "homepage": "https://github.com/noeldelgado/color-converter#readme",
   "dependencies": {
     "@simonwep/pickr": "^1.5.1",
     "color": "^3.1.2",
