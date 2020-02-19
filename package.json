@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "yet-another-color-converter",
+  "name": "yacc",
   "version": "0.1.0",
   "scripts": {
     "start": "npm run watch",
