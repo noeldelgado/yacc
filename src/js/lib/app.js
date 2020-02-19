@@ -103,6 +103,7 @@ export default class App {
         app.pickr = new Pickr({
             el: app.ui.colorPickerButton,
             useAsButton: true,
+            default: app.config.color,
             theme: 'nano',
             position: 'right',
             components: {
