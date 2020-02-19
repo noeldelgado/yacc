@@ -3,17 +3,17 @@
   "short_name":"YACC",
   "icons":[
     {
-      "src":"/public/images/android-chrome-192x192.png",
+      "src":"public/images/android-chrome-192x192.png",
       "type":"image/png",
       "sizes":"192x192"
     },
     {
-      "src":"/public/images/android-chrome-512x512.png",
+      "src":"public/images/android-chrome-512x512.png",
       "type":"image/png",
       "sizes":"512x512"
     }
   ],
-  "start_url": "/#FFFFFF",
+  "start_url": "/yacc/#FFFFFF",
   "background_color":"#ffffff",
   "display":"standalone",
   "theme_color":"#ffffff"

@@ -133,7 +133,7 @@ export default class App {
         app._bindEvents()._updateUI(color, {
             preventHistoryUpdate: true
         });
-        history.replaceState({ color }, null, `/${color}`);
+        history.replaceState({ color }, null, `${color}`);
 
         return app;
     }
@@ -261,7 +261,7 @@ export default class App {
         document.documentElement.style.setProperty('--cc-border-color', borderColor.toString());
 
         if (!preventHistoryUpdate) {
-            history.pushState({ color: hex }, null, `/${hex}`);
+            history.pushState({ color: hex }, null, `${hex}`);
             document.title = `${app.config.title} - ${hex}`;
         }
 
