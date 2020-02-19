@@ -1,0 +1,45 @@
+button {
+  font-weight: inherit;
+  border: 2px solid var(--cc-border-color);
+  background-color: var(--cc-text-color);
+  color: var(--cc-main-color);
+  transition: all var(--cc-transition-duration) var(--cc-transition-timing);
+  transition-property: color, background-color, border-color, box-shadow;
+
+  &:focus {
+    box-shadow: var(--cc-border-color) 0 0 0 0.25em;
+  }
+
+  &:active {
+    background-color: var(--cc-border-color);
+    box-shadow: none;
+  }
+}
+
+.cc-btn {
+  border-radius: 3px;
+  border: none;
+  padding: 0.5rem 1rem;
+
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+button.cc-btn-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  padding: 0;
+
+  &.cc-btn-sm {
+    width: 48px;
+    height: 48px;
+
+    & > svg {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

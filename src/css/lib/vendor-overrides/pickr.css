@@ -1,0 +1,12 @@
+/**
+ * https://github.com/Simonwep/pickr
+ */
+.pcr-app[data-theme=nano] {
+  & .pcr-selection .pcr-color-chooser {
+    grid-area: 2/1/2/3;
+  }
+
+  & .pcr-swatches {
+    margin: 0;
+  }
+}

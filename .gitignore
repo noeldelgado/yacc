@@ -1,3 +1,7 @@
-.DS_Store
 node_modules
-.sass-cache
+package-lock.json
+src/assets/svg-sprite-symbol/
+.tarima
+.nvmrc
+.ruby-version
+.DS_Store
