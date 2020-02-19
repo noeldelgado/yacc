@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [0.1.0] - 2020-02-18
+## [0.1.0] [#1](../../pull/1) - 2020-02-18
 ### Added
 - HWB color model
 - feColorMatrix’s values
