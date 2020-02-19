@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.3] - [#4](../../pull/4) - 2020-02-18
+### Changed
+- Fix site.webmanifest paths
+
 ## [0.1.2] - [#3](../../pull/3) - 2020-02-18
 ### Changed
 - Fix site.webmanifest paths
@@ -43,7 +47,8 @@
 ## 2013-10-03
 - Initial release
 
-[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/noeldelgado/yacc/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/noeldelgado/yacc/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/noeldelgado/yacc/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/noeldelgado/yacc/releases/tag/v0.1.0
