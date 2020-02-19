@@ -2,7 +2,7 @@
 
 Convert HEX/RGB/HSL/HWB color models plus feColorMatrix’s values
 
-https://noeldelgado.github.io/color-converter/
+https://noeldelgado.github.io/yacc/
 
 ### Development
 Start server on port 3000 with livereload watching files on the `src` folder
