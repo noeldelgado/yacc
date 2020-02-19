@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
-## [0.1.0] [#1](../../pull/1) - 2020-02-18
+## [0.1.1] - [#2](../../pull/2) - 2020-02-18
+### Changed
+- Fix assets path
+
+## [0.1.0] - [#1](../../pull/1) - 2020-02-18
 ### Added
 - HWB color model
 - feColorMatrix’s values
@@ -35,4 +39,5 @@
 - Initial release
 
 [Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.1.0...HEAD
+[0.1.1]: https://github.com/noeldelgado/yacc/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/noeldelgado/yacc/releases/tag/v0.1.0
