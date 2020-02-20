@@ -25,7 +25,9 @@
     <main>
       <div class="cc-color-item -hex">
         <label for="hex-input" class="cc-color-item__label"><span>HEX</span></label>
-        <input id="hex-input" class="cc-input" data-js-hex-input type="text" placeholder="#FFFFFF" disabled/>
+        <div class="cc-color-item__input-wrapper">
+          <input id="hex-input" class="cc-input" data-js-hex-input type="text" placeholder="#FFFFFF" disabled/>
+        </div>
         <div class="cc-color-item__btn">
           <button class="cc-btn-icon cc-btn-sm" data-js-copy-to-clipboard-btn data-copy="value:[data-js-hex-input]" aria-label="Copy HEX color to clipboard" disabled>
             <svg width="16" height="16">
@@ -36,7 +38,9 @@
       </div>
       <div class="cc-color-item -rgb">
         <label for="rgb-input" class="cc-color-item__label"><span>RGB</span></label>
-        <input id="rgb-input" class="cc-input" data-js-rgb-input type="text" placeholder="rgb(255, 255, 255)" disabled/>
+        <div class="cc-color-item__input-wrapper">
+          <input id="rgb-input" class="cc-input" data-js-rgb-input type="text" placeholder="rgb(255, 255, 255)" disabled/>
+        </div>
         <div class="cc-color-item__btn">
           <button class="cc-btn-icon cc-btn-sm" data-js-copy-to-clipboard-btn data-copy="value:[data-js-rgb-input]" aria-label="Copy RGB color to clipboard" disabled>
             <svg width="16" height="16">
@@ -47,7 +51,9 @@
       </div>
       <div class="cc-color-item -hsl">
         <label for="hsl-input" class="cc-color-item__label"><span>HSL</span></label>
-        <input id="hsl-input" class="cc-input" data-js-hsl-input type="text" placeholder="hsl(0, 0%, 100%)" disabled/>
+        <div class="cc-color-item__input-wrapper">
+          <input id="hsl-input" class="cc-input" data-js-hsl-input type="text" placeholder="hsl(0, 0%, 100%)" disabled/>
+        </div>
         <div class="cc-color-item__btn">
           <button class="cc-btn-icon cc-btn-sm" data-js-copy-to-clipboard-btn data-copy="value:[data-js-hsl-input]" aria-label="Copy HSL color to clipboard" disabled>
             <svg width="16" height="16">
@@ -58,7 +64,9 @@
       </div>
       <div class="cc-color-item -hwb">
         <label for="hwb-input" class="cc-color-item__label"><span>HWB</span></label>
-        <input id="hwb-input" class="cc-input" data-js-hwb-input type="text" placeholder="hwb(0, 100%, 0%)" disabled/>
+        <div class="cc-color-item__input-wrapper">
+          <input id="hwb-input" class="cc-input" data-js-hwb-input type="text" placeholder="hwb(0, 100%, 0%)" disabled/>
+        </div>
         <div class="cc-color-item__btn">
           <button class="cc-btn-icon cc-btn-sm" data-js-copy-to-clipboard-btn data-copy="value:[data-js-hwb-input]" aria-label="Copy HWB color to clipboard" disabled>
             <svg width="16" height="16">

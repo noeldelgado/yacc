@@ -57,6 +57,6 @@
   order: 1;
 }
 
-.cc-color-item > .cc-input {
+.cc-color-item__input-wrapper {
   order: 2;
 }
