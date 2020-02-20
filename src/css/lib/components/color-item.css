@@ -50,9 +50,13 @@
     transform: rotate(180deg);
   }
 }
-
 .cc-color-item__btn {
   display: flex;
   align-items: center;
   padding: 0 0.5rem 0 0;
+  order: 1;
+}
+
+.cc-color-item > .cc-input {
+  order: 2;
 }
