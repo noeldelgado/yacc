@@ -107,7 +107,8 @@ export default class App {
             theme: 'nano',
             position: 'right',
             components: {
-                hue: true
+                hue: true,
+                opacity: true
             }
         });
     }
@@ -230,18 +231,18 @@ export default class App {
         const { preventHistoryUpdate, preventElementUpdate } = params;
 
         app.color = Color(color);
+        app.pickr.setColor(color);
 
-        let hex = app.color.hex();
+        let hex = app.pickr.getColor().toHEXA().toString();
         let rgb = app.color.rgb().string();
-        let hsl = app.color.hsl().round().string();
-        let hwb = app.color.hwb().round().string();
+        let hsl = app.color.hsl().string(0);
+        let hwb = app.color.hwb().string(0);
         let [ r, g, b] = app.color.unitArray();
 
         let isLight = app.color.isLight();
         let textColor = app.color.mix(Color(isLight ? '#000' : '#fff'), 0.8);
         let borderColor = app.color.mix(Color(isLight ? '#000' : '#fff'), 0.2);
 
-        app.pickr.setColor(hex);
 
         if (preventElementUpdate !== app.ui.hexInput.element) {
             app.ui.hexInput.setValue(hex);
