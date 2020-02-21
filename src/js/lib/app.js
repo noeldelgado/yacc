@@ -199,13 +199,18 @@ export default class App {
 
     /**
      * Handles popstate event
+     * Defaults to location.hash if state or state.color is falsy
      * @private
      * @return undefined
      */
     _popStateHandler(ev) {
-        if (!ev.state || !ev.state.color) return;
+        let color = (ev.state && ev.state.color) || location.hash;
 
-        this._updateUI(ev.state.color, {
+        if (internals.validateColor(color) === false) {
+            return;
+        }
+
+        this._updateUI(color, {
             preventHistoryUpdate: true
         });
     }
