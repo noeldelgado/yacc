@@ -67,6 +67,7 @@
           ]
         },
         "postcss-cssnext": {
+          "browsers": ["last 1 version"],
           "features": {
             "customProperties": false,
             "calc": false
