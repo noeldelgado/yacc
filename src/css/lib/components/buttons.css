@@ -1,4 +1,7 @@
 button {
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: inherit;
   font-weight: inherit;
   border: 2px solid var(--cc-border-color);
   background-color: var(--cc-text-color);
@@ -34,8 +37,10 @@ button.cc-btn-icon {
   padding: 0;
 
   &.cc-btn-sm {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
+    background-color: var(--cc-main-color);
+    color: var(--cc-text-color);
 
     & > svg {
       display: block;
