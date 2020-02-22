@@ -15,6 +15,7 @@ $bundle: true
 
 :root {
   --cc-main-color: #fff;
+  --cc-main-solid-color: #fff;
   --cc-text-color: #000;
   --cc-border-color: #e6e6e6;
 

@@ -5,7 +5,7 @@ button {
   font-weight: inherit;
   border: 2px solid var(--cc-border-color);
   background-color: var(--cc-text-color);
-  color: var(--cc-main-color);
+  color: var(--cc-main-solid-color);
   transition: all var(--cc-transition-duration) var(--cc-transition-timing);
   transition-property: color, background-color, border-color, box-shadow;
 

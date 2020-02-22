@@ -233,27 +233,28 @@ export default class App {
         app.color = Color(color);
         app.pickr.setColor(color);
 
-        let hex = app.pickr.getColor().toHEXA().toString();
-        let rgb = app.color.rgb().string();
-        let hsl = app.color.hsl().string(0);
+        let hex = app.color.hex();
+        let hexa = app.pickr.getColor().toHEXA().toString();
+        let rgba = app.color.rgb().string();
+        let hsla = app.color.hsl().string(0);
         let hwb = app.color.hwb().string(0);
+        let alpha = app.color.valpha;
         let [ r, g, b] = app.color.unitArray();
 
         let isLight = app.color.isLight();
         let textColor = app.color.mix(Color(isLight ? '#000' : '#fff'), 0.8);
         let borderColor = app.color.mix(Color(isLight ? '#000' : '#fff'), 0.2);
 
-
         if (preventElementUpdate !== app.ui.hexInput.element) {
-            app.ui.hexInput.setValue(hex);
+            app.ui.hexInput.setValue(hexa);
         }
 
         if (preventElementUpdate !== app.ui.rgbInput.element) {
-            app.ui.rgbInput.setValue(rgb);
+            app.ui.rgbInput.setValue(rgba);
         }
 
         if (preventElementUpdate !== app.ui.hslInput.element) {
-            app.ui.hslInput.setValue(hsl);
+            app.ui.hslInput.setValue(hsla);
         }
 
         if (preventElementUpdate !== app.ui.hwbInput.element) {
@@ -262,13 +263,14 @@ export default class App {
 
         app.ui.fcmInput.value = `${r.toFixed(2)}\t0\t0\t0\t0\n0\t${g.toFixed(2)}\t0\t0\t0\n0\t0\t${b.toFixed(2)}\t0\t0\n0\t0\t0\t1\t0`;
 
-        document.documentElement.style.setProperty('--cc-main-color', hsl);
+        document.documentElement.style.setProperty('--cc-main-color', hsla);
+        document.documentElement.style.setProperty('--cc-main-solid-color', hex);
         document.documentElement.style.setProperty('--cc-text-color', textColor.toString());
         document.documentElement.style.setProperty('--cc-border-color', borderColor.toString());
 
         if (!preventHistoryUpdate) {
-            history.pushState({ color: hex }, null, `${hex}`);
-            document.title = `${app.config.title} - ${hex}`;
+            history.pushState({ color: hexa }, null, `${hexa}`);
+            document.title = `${app.config.title} - ${hexa}`;
         }
 
         return app;

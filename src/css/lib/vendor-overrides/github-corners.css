@@ -9,7 +9,7 @@
 
   & .octo-arm,
   & .octo-body {
-    fill: var(--cc-main-color);
+    fill: var(--cc-main-solid-color);
     transition: fill var(--cc-transition-duration) var(--cc-transition-timing);
   }
 
