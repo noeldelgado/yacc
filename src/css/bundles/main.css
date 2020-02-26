@@ -4,7 +4,6 @@ $bundle: true
 ---
 */
 @import '@simonwep/pickr/dist/themes/nano.min.css';
-@import '../lib/vendor-overrides/github-corners';
 @import '../lib/vendor-overrides/pickr';
 @import '../lib/components/buttons';
 @import '../lib/components/color-item';
