@@ -5,7 +5,6 @@ import Pickr from '@simonwep/pickr/dist/pickr.es5.min';
 import Copy from 'copy-text-to-clipboard';
 import Input from '~/src/js/lib/components/input.js';
 import Toast from '~/src/js/lib/components/toast.js';
-import CS from '~/src/js/lib/vendor/character-shuffling.js';
 import { $, $$, autoBind, getRandomHex } from '~/src/js/lib/utils'
 window.Color = Color;
 

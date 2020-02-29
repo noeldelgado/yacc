@@ -1,6 +1,5 @@
 const { log } = console;
 
-// import CS from '~/src/js/lib/vendor/character-shuffling.js';
 import { autoBind } from '~/src/js/lib/utils';
 
 const internals = {
@@ -56,18 +55,6 @@ export default class Input {
 
         return input;
     }
-
-    /*
-    shuffle(text, params = {}) {
-        let options = {
-            times: 2,
-            chars: '123456789',
-        };
-        Object.assign(options, params);
-
-        new CS(this.element, options).shuffle({ text });
-    }
-    */
 
     _bindEvents() {
         const input = this;
