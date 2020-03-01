@@ -1,0 +1,19 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": ["src/js"]
+  },
+  "sourceType": "module",
+  "plugins": [],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "recurse": true,
+    "private": true,
+    "destination": "./jsdoc/"
+  }
+}
