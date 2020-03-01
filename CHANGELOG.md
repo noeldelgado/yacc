@@ -16,22 +16,22 @@
 - Fix manually changing hash not updating UI [6e1f71f](6e1f71f)
 - Update autoprefixer:browsers 'last 1 version' [a487a4d](a487a4d)
 - Remove github-corner [4e0dd25](4e0dd25)
-- Initial random color b663608
+- Initial random color [b663608](b663608)
 
-## [0.1.3] - #4 - 2020-02-18
+## [0.1.3] - [#4](../../pull/4) - 2020-02-18
 ### Changed
 - Fix site.webmanifest paths
 
-## [0.1.2] - [#3](#3) - 2020-02-18
+## [0.1.2] - [#3](../../pull/3) - 2020-02-18
 ### Changed
 - Fix site.webmanifest paths
 - Fix history navigation
 
-## [0.1.1] - [#2](#2) - 2020-02-18
+## [0.1.1] - [#2](../../pull/2) - 2020-02-18
 ### Changed
 - Fix assets path
 
-## [0.1.0] - [#1](#1) - 2020-02-18
+## [0.1.0] - [#1](../../pull/1) - 2020-02-18
 ### Added
 - HWB color model
 - feColorMatrix’s values
