@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["node_modules/", "out/", "build/"],
+  "ignorePatterns": ["node_modules/", "jsdoc/", "build/"],
   "env": {
     "browser": true,
     "es6": true

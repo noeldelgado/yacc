@@ -1,104 +1,132 @@
-const { log } = console;
-
-import { autoBind } from '~/src/js/lib/utils';
-
-const internals = {
-    rs: (string) => string.replace(/\s/g,'')
-};
+/**
+ * Inputs base class.
+ * @module Input
+ */
+import { debounce } from '~/src/js/lib/utils';
 
 export default class Input {
-    static get defaultProps() {
-        return  {
-            config: {},
-            latestValidValue: ''
-        }
-    }
-
-    static get defaultConfig() {
-        return {
-            el: null,
-            validate: () => true
-        }
-    }
-
+    /**
+     * Create Input instance.
+     * @param {Object} config - override default config.
+     * @param {NodeElement} [config.el=null] - Main widget element.
+     * @param {string} [config.model=null] - Input color model supported by the `color` library.
+     * @param {number} [config.debounceMilliseconds=300] - Delay in milliseconds for debounced input event.
+     * @param {Function} [config.validate=() => true] - Custom function to perform input validations.
+     * @return {this}
+     */
     constructor(config) {
         const input = this;
 
-        Object.assign(input, input.constructor.defaultProps);
-        Object.assign(input.config, input.constructor.defaultConfig, config);
+        Object.assign(input.config = {}, {
+            el: null,
+            model: null,
+            debounceMilliseconds: 300,
+            validate: () => true
+        }, config);
+
+        input.events = {};
+        input.validColorString = null;
+        input.validFormat = null;
+        input.latestValidValue = null;
 
         input._bindEvents();
-    }
-
-    enable() {
-        this.config.el.removeAttribute('disabled');
-        return this;
     }
 
     get element() {
         return this.config.el;
     }
 
-    get value() {
-        return this.element.value;
+    /**
+     * Removes input’s attribute `disabled`.
+     * @return {this}
+     */
+    enable() {
+        this.element.removeAttribute('disabled');
+        return this;
     }
 
-    set value(value) {
-        this.config.element.value = value;
-    }
-
+    /**
+     * Updates the input’s value.
+     * @return {this}
+     */
     setValue(value) {
         const input = this;
 
-        input.element.value = value;
-        input.latestValidValue = value;
+        if (value !== input.latestValidValue) {
+            input.element.value = value;
+            input.latestValidValue = value;
+            input.validFormat = value;
+        }
 
         return input;
     }
 
+    /**
+     * Register event listeners.
+     * @private
+     * @return {this}
+     */
     _bindEvents() {
         const input = this;
 
-        input.events = {};
-        input.events.isValid = new CustomEvent('isValid', {
-            bubbles: true,
-            testData: 100,
+        input.events.validChange = new CustomEvent('validChange', {
             detail: {
-                el: input.element,
-                text: () => input.element.value
+                color: () => input.validColorString
             }
         });
 
-        autoBind([
-            [ input.config.el, 'input', '_inputHandler' ]
-        ], input);
+        input._inputHandler = input._inputHandler.bind(input);
+        input.element.addEventListener('input', debounce(input._inputHandler, input.config.debounceMilliseconds));
+
+        input._blurHandler = input._blurHandler.bind(input);
+        input.element.addEventListener('blur', input._blurHandler);
 
         return input;
     }
 
-    _inputHandler(ev) {
+    /**
+     * Compares the current valid input format with the previously emitted value.
+     * @private
+     * @return {boolean}
+     */
+    _hasChanged() {
+        return (this.latestValidValue !== this.validFormat);
+    }
+
+    /**
+     * Input’s input event handler.
+     * @private
+     * @emits {validChange} if the `config.validate` function resolves with a truthy value and the input’s value is different than the previously emitted value.
+     */
+    _inputHandler() {
         const input = this;
 
-        if (input.config.validate) {
-            if (input.config.validate(input.element.value)) {
-                input.element.setAttribute('aria-invalid', 'false');
-                if (internals.rs(input.latestValidValue) !== internals.rs(input.element.value)) {
-                    input.latestValidValue = input.element.value;
-                    input.element.dispatchEvent(input.events.isValid);
-                }
-                return input;
-            }
-
+        if (!input.config.validate(input)) {
             input.element.setAttribute('aria-invalid', 'true');
-
-            return input;
+            return;
         }
 
-        // if (this.el.validity.valid) {
-        //     if (rs(this.latestValidValue) !== rs(this.el.value)) {
-        //         this.latestValidValue = this.el.value;
-        //         this.el.dispatchEvent(this.events.isValid);
-        //     }
-        // }
+        input.element.setAttribute('aria-invalid', 'false');
+
+        if (input._hasChanged()) {
+            input.latestValidValue = input.validFormat;
+            input.element.dispatchEvent(input.events.validChange);
+        }
+    }
+
+    /**
+     * Input’s blur event handler.
+     * Restores the latest valid value if needed.
+     * @private
+     */
+    _blurHandler() {
+        const input = this;
+        const validFormat = input.validFormat;
+
+        if (validFormat && (input.element.value !== validFormat)) {
+            input.element.value = validFormat;
+            input.latestValidValue = validFormat;
+            input.element.setAttribute('aria-invalid', 'false');
+        }
     }
 }

@@ -5,9 +5,11 @@ $bundle: true
 */
 @import '@simonwep/pickr/dist/themes/nano.min.css';
 @import '../lib/vendor-overrides/pickr';
+@import '../lib/components/header';
+@import '../lib/components/footer';
 @import '../lib/components/buttons';
-@import '../lib/components/color-item';
 @import '../lib/components/inputs';
+@import '../lib/components/color-item';
 @import '../lib/components/toast';
 @import '../lib/utils';
 @import '../lib/style';
@@ -21,8 +23,9 @@ $bundle: true
   --cc-transition-timing: ease-out;
   --cc-transition-duration: 260ms;
 
-  font-family: system-ui;
+  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
+  line-height: 1.618;
 }
 
 * {
@@ -32,8 +35,11 @@ $bundle: true
 }
 
 body {
-  user-select: none;
   font-kerning: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 a {

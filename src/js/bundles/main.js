@@ -19,4 +19,4 @@ catch (err) {
 const app = new App(data);
 app.run();
 
-// window.app = app;
+window.app = app;

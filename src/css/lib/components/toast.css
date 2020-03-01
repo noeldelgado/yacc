@@ -3,6 +3,7 @@
   position: fixed;
   top: 1rem;
   left: 1rem;
+  max-width: calc(100vw - 2rem);
 
   &.show > .toast {
     opacity: 1;
@@ -11,14 +12,12 @@
 }
 
 .toast {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  font-weight: 400;
+  padding: 0.5rem 1rem;
   background: var(--cc-text-color);
   color: var(--cc-main-color);
   border-radius: 3px;
   opacity: 0;
-  transform: translate3d(-1rem, 0, 0);
+  transform: translate3d(-0.5rem, 0, 0);
   transition: all var(--cc-transition-duration) var(--cc-transition-timing);
   transition-property: opacity, transform;
 }

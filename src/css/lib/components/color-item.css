@@ -1,60 +1,62 @@
-:root {
-  --cc-fsd: 10;
-  --cc-color-item-input-font-size: {
-    font-size: calc(100vw / var(--cc-fsd));
+.color-items {
+  display: grid;
+  grid-template-columns: auto;
+  max-width: 800px;
+  padding-top: 1rem;
+  list-style: none;
 
-    @media (min-width: 1000px) {
-      font-size: calc(1000px / var(--cc-fsd));
+  @media (min-width: 768px) {
+    grid-template-columns: [col] 50% [col] 50%;
+    padding-top: 0;
+  }
+}
+
+.color-item {
+  display: flex;
+  font-size: 36px;
+  min-height: 48px;
+  margin-bottom: 0.5rem;
+
+  &.-hex {
+    font-size: 36px;
+
+    & input {
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 144px;
+      grid-column: col / span 2;
+      margin: 0;
     }
   }
 }
 
-.cc-color-item {
-  display: flex;
-  min-height: 48px;
-
-  &.-hex {
-    --cc-fsd: 7;
-    @apply --cc-color-item-input-font-size;
-    margin: -0.1em 0 -0.2em;
-  }
-
-  &.-rgb {
-    --cc-fsd: 12;
-    @apply --cc-color-item-input-font-size;
-  }
-
-  &.-hsl {
-    --cc-fsd: 13;
-    @apply --cc-color-item-input-font-size;
-  }
-
-  &.-hwb {
-    --cc-fsd: 13;
-    @apply --cc-color-item-input-font-size;
-  }
-}
-
-/*
-.cc-color-item__label {
+.color-item__btn {
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
-  padding: 0 0.5rem 0 1rem;
 
-  & > span {
-    width: 10px;
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
+  & button {
+    display: flex;
+    width: 60px;
+
+    & > * {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  & svg {
+    margin-right: 0.25rem;
   }
 }
-*/
 
-.cc-color-item__btn {
-  order: 1;
-}
+.color-item__input {
+  display: flex;
+  position: relative;
+  overflow: hidden;
 
-.cc-color-item__input-wrapper {
-  flex: 1;
-  order: 2;
+  & input {
+    letter-spacing: -2px;
+  }
 }

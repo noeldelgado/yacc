@@ -1,102 +1,85 @@
-const { log } = console;
-
+/**
+ * Application main handler
+ * @module App
+ */
 import Color from 'color';
-import Pickr from '@simonwep/pickr/dist/pickr.es5.min';
 import Copy from 'copy-text-to-clipboard';
-import Input from '~/src/js/lib/components/input.js';
+import Pickr from '@simonwep/pickr/dist/pickr.es5.min';
+import InputHex from '~/src/js/lib/components/input-hex.js';
+import InputNumeric from '~/src/js/lib/components/input-numeric.js';
+import FeColorMatrixInput from '~/src/js/lib/components/fe-color-matrix-input.js';
 import Toast from '~/src/js/lib/components/toast.js';
 import { $, $$, autoBind, getRandomHex } from '~/src/js/lib/utils'
 window.Color = Color;
 
-const internals = {};
-/**
- * Checks if a string is a valid color format for `color` library
- * @param {string} color
- * @return {boolean}
- */
-internals.validateColor = (color) => {
-    try {
-        Color(color);
-        return true;
-    }
-    catch (err) {
-        return false;
+const internals = {
+    /**
+     * Checks if a string is a valid color input for the `color` library.
+     * @param {string} str
+     * @return {boolean}
+     */
+    validateColor(str) {
+        try {
+            Color(str);
+            return true;
+        }
+        catch (err) {
+            return false;
+        }
     }
 };
 
-/**
- * Application main handler
- */
 export default class App {
     /**
-     * @return {Object} default class properties
-     */
-    static get initialtProps() {
-        return  {
-            config: {},
-            /**
-             * Color’s instance reference
-             * @typeof {Color}
-             */
-            color: null,
-            /**
-             * Pickr’s instance reference
-             * @typeof {Pickr}
-             */
-            pickr: null,
-            /**
-             * Node elements collection reference
-             */
-            ui: {}
-        }
-    }
-
-    /**
-     * @return {Object} default configuraton values
-     */
-    static get defaultConfig() {
-        return {
-            color: '#FFFFFF',
-            title: document.title
-        }
-    }
-
-    /**
-     * @param {Object} config override default config
-     * @param {string} [config.color='#FFF']
+     * Create App instance.
+     * @param {Object} config - override default config
+     * @param {string} [config.color='#FFFFFF'] - Initial app color
+     * @param {string} [config.title=document.title] - Prefix for document.title when history changes
+     * @return {this}
      */
     constructor(config) {
         const app = this;
 
-        Object.assign(app, app.constructor.initialtProps);
-        Object.assign(app.config, app.constructor.defaultConfig, config);
+        Object.assign(app.config = {}, {
+            color: '#FFFFFF',
+            title: document.title
+        }, config);
+
+        app.color = null;
+        app.pickr = null;
+        app.ui = {};
 
         app.ui = {
-            randomBtn: $('[data-random]'),
-            copyToClipboardButtons: $$('[data-js-copy-to-clipboard-btn]'),
+            randomButton: $('[data-js-random-btn]'),
             colorPickerButton: $('[data-js-colorpicker-btn]'),
-            fcmInput: $('[data-js-fecolormatrix-input]'),
-
-            hexInput: new Input({
-                el: $('[data-js-hex-input]'),
-                validate: internals.validateColor
-            }),
-            rgbInput: new Input({
+            copyToClipboardButtons: $$('[data-js-copy-to-clipboard-btn]'),
+            hexInput: new InputHex({ el: $('[data-js-hex-input]') }),
+            rgbInput: new InputNumeric({
                 el: $('[data-js-rgb-input]'),
-                validate: internals.validateColor
+                model: 'rgb'
             }),
-            hslInput: new Input({
+            hslInput: new InputNumeric({
                 el: $('[data-js-hsl-input]'),
-                validate: internals.validateColor
+                model: 'hsl'
             }),
-            hwbInput: new Input({
+            hwbInput: new InputNumeric({
                 el: $('[data-js-hwb-input]'),
-                validate: internals.validateColor
+                model: 'hwb'
             }),
-
-            toast: new Toast({
-                el: $('.toast-wrapper')
-            })
+            hsvInput: new InputNumeric({
+                el: $('[data-js-hsv-input]'),
+                model: 'hsv'
+            }),
+            cmykInput: new InputNumeric({
+                el: $('[data-js-cmyk-input]'),
+                model: 'cmyk'
+            }),
+            labInput: new InputNumeric({
+                el: $('[data-js-lab-input]'),
+                model: 'lab'
+            }),
+            fcmInput: new FeColorMatrixInput({ el: $('[data-js-fecolormatrix-input]') }),
+            toast: new Toast({ el: $('.toast-wrapper') })
         };
 
         app.pickr = new Pickr({
@@ -113,11 +96,8 @@ export default class App {
     }
 
     /**
-     * Boot the app:
-     *  - enable inputs and buttons
-     *  - bind events and update the history entry
-     * @public
-     * @return {App}
+     * Boot the app.
+     * @return {this}
      */
     run() {
         const app = this;
@@ -127,6 +107,10 @@ export default class App {
         app.ui.rgbInput.enable();
         app.ui.hslInput.enable();
         app.ui.hwbInput.enable();
+        app.ui.hsvInput.enable();
+        app.ui.cmykInput.enable();
+        app.ui.labInput.enable();
+        app.ui.randomButton.removeAttribute('disabled');
         app.ui.colorPickerButton.removeAttribute('disabled');
         app.ui.copyToClipboardButtons.forEach(b => b.removeAttribute('disabled'));
 
@@ -139,20 +123,23 @@ export default class App {
     }
 
     /**
-     * Register event listeners
+     * Register event listeners and its handlers.
      * @private
-     * @return {App}
+     * @return {this}
      */
     _bindEvents() {
         const app = this;
 
         autoBind([
-            [ app.ui.randomBtn, 'click', '_randomClickHandler' ],
+            [ app.ui.randomButton, 'click', '_randomClickHandler' ],
             [ app.ui.copyToClipboardButtons, 'click', '_copyColorToClipboardHandler' ],
-            [ app.ui.hexInput.element, 'isValid', '_isInputValidHandler' ],
-            [ app.ui.rgbInput.element, 'isValid', '_isInputValidHandler' ],
-            [ app.ui.hslInput.element, 'isValid', '_isInputValidHandler' ],
-            [ app.ui.hwbInput.element, 'isValid', '_isInputValidHandler' ],
+            [ app.ui.hexInput.element, 'validChange', '_isInputValidHandler' ],
+            [ app.ui.rgbInput.element, 'validChange', '_isInputValidHandler' ],
+            [ app.ui.hslInput.element, 'validChange', '_isInputValidHandler' ],
+            [ app.ui.hwbInput.element, 'validChange', '_isInputValidHandler' ],
+            [ app.ui.hsvInput.element, 'validChange', '_isInputValidHandler' ],
+            [ app.ui.cmykInput.element, 'validChange', '_isInputValidHandler' ],
+            [ app.ui.labInput.element, 'validChange', '_isInputValidHandler' ],
             [ window, 'popstate', '_popStateHandler' ]
         ], app);
 
@@ -164,44 +151,46 @@ export default class App {
     }
 
     /**
-     * Handles copyToClipboardButtons’ click event
+     * Handles app.ui.copyToClipboardButtons’ click event.
+     * Gets the reference to the text to be copied from the Element.dataset.
+     * If the copy was successful a message is displayed to the user.
      * @private
-     * @return undefined
      */
     _copyColorToClipboardHandler(ev) {
         const [ property, selector ] = ev.currentTarget.dataset.copy.split(':');
         const value = $(selector)[property];
 
         if (Copy(value)) {
-            this.ui.toast.show(`<b>${value}</b> copied`);
+            this.ui.toast.show(`“${value}” copied to clipboard`);
         }
     }
 
     /**
-     * Handles app.ui.randomBtn’s click event
+     * Handles app.ui.randomButton’s click event.
+     * Calls app._updateUI passing a random hex string as param.
      * @private
-     * @return undefined
      */
     _randomClickHandler() {
         this._updateUI(getRandomHex());
     }
 
     /**
-     * Handles Input’s isValid custom event
+     * Handles Input’s validChange custom event.
+     * Calls app._updateUI passing the color received on the events’s detail and the referece to the input as params.preventElementUpdate for the input itself to not be updated.
      * @private
-     * @return undefined
      */
     _isInputValidHandler(ev) {
-        this._updateUI(ev.detail.text(), {
+        this._updateUI(ev.detail.color(), {
             preventElementUpdate: ev.target
         });
     }
 
     /**
-     * Handles popstate event
-     * Defaults to location.hash if state or state.color is falsy
+     * Handles popstate event.
+     * Gets the color data from the event state. If no color in state it defaults to location.hash.
+     * Returns if the color data is not valid.
+     * Updates the UI with the passed color and preventHistoryUpdate otherwise.
      * @private
-     * @return undefined
      */
     _popStateHandler(ev) {
         let color = (ev.state && ev.state.color) || location.hash;
@@ -216,58 +205,62 @@ export default class App {
     }
 
     /**
-     * Updates the UI with passed color param.
-     * Sets new app.color instance with to get color space conversions
-     * Creates a new history state if
-     * @param {string} [color='#000']
+     * Updates the main UI color.
+     * @param {string} [color='#000'] - String color to update the whole UI with.
      * @param {Object} [params={}]
-     * @property {boolean=} preventHistoryUpdate
-     * @property {HTMLInputElement=} preventElementUpdate do not update this element
+     * @param {boolean} [params.preventHistoryUpdate=false] - Do not add a state to the browser’s session history stack.
+     * @param {HTMLInputElement=} params.preventElementUpdate - This input element will not be updated.
      * @private
      */
-    _updateUI(color = '#000', params = {}) {
+    _updateUI(color = '#000000', params = {}) {
+        const { preventHistoryUpdate = false, preventElementUpdate } = params;
         const app = this;
-        const { preventHistoryUpdate, preventElementUpdate } = params;
 
         app.color = Color(color);
         app.pickr.setColor(color);
 
-        let hex = app.color.hex();
-        let hexa = app.pickr.getColor().toHEXA().toString();
-        let rgba = app.color.rgb().string();
-        let hsla = app.color.hsl().string(0);
-        let hwb = app.color.hwb().string(0);
-        let alpha = app.color.valpha;
-        let [ r, g, b] = app.color.unitArray();
+        const hex = app.color.hex();
+        const hexa = app.pickr.getColor().toHEXA().toString();
+        const rgba = app.color.rgb().round().array().toString();
+        const hsla = app.color.hsl().round().array().toString();
+        const hwb = app.color.hwb().round().array().toString();
+        const hsv = app.color.hsv().round().array().toString();
+        const cmyk = app.color.cmyk().round().array().toString();
+        const lab = app.color.lab().round().array().toString();
 
-        let isLight = app.color.isLight();
-        let textColor = app.color.mix(Color(isLight ? '#000' : '#fff'), 0.8);
-        let borderColor = app.color.mix(Color(isLight ? '#000' : '#fff'), 0.2);
+        const isLight = app.color.isLight();
+        const textColor = app.color.mix(Color(isLight? '#000' : '#fff'), 0.8);
+        const borderColor = app.color.mix(Color(isLight? '#000' : '#fff'), 0.2);
 
-        if (preventElementUpdate !== app.ui.hexInput.element) {
-            app.ui.hexInput.setValue(hexa);
-        }
+        if (preventElementUpdate !== app.ui.hexInput.element)
+            app.ui.hexInput.setValue(hexa.replace('#', ''));
 
-        if (preventElementUpdate !== app.ui.rgbInput.element) {
+        if (preventElementUpdate !== app.ui.rgbInput.element)
             app.ui.rgbInput.setValue(rgba);
-        }
 
-        if (preventElementUpdate !== app.ui.hslInput.element) {
+        if (preventElementUpdate !== app.ui.hslInput.element)
             app.ui.hslInput.setValue(hsla);
-        }
 
-        if (preventElementUpdate !== app.ui.hwbInput.element) {
+        if (preventElementUpdate !== app.ui.hwbInput.element)
             app.ui.hwbInput.setValue(hwb);
-        }
 
-        app.ui.fcmInput.value = `${r.toFixed(2)}\t0\t0\t0\t0\n0\t${g.toFixed(2)}\t0\t0\t0\n0\t0\t${b.toFixed(2)}\t0\t0\n0\t0\t0\t1\t0`;
+        if (preventElementUpdate !== app.ui.hsvInput.element)
+            app.ui.hsvInput.setValue(hsv);
 
-        document.documentElement.style.setProperty('--cc-main-color', hsla);
+        if (preventElementUpdate !== app.ui.cmykInput.element)
+            app.ui.cmykInput.setValue(cmyk);
+
+        if (preventElementUpdate !== app.ui.labInput.element)
+            app.ui.labInput.setValue(lab);
+
+        app.ui.fcmInput.setValue(app.color.unitArray());
+
+        document.documentElement.style.setProperty('--cc-main-color', app.color.hsl());
         document.documentElement.style.setProperty('--cc-main-solid-color', hex);
         document.documentElement.style.setProperty('--cc-text-color', textColor.toString());
         document.documentElement.style.setProperty('--cc-border-color', borderColor.toString());
 
-        if (!preventHistoryUpdate) {
+        if (preventHistoryUpdate === false) {
             history.pushState({ color: hexa }, null, `${hexa}`);
             document.title = `${app.config.title} - ${hexa}`;
         }
