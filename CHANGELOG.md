@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.2.1] - [#6](../../pull/6) - 2020-03-01
+### Changed
+- Fix feColorMatrix whitespace [`185a02e`](https://github.com/noeldelgado/yacc/commit/185a02e41a8c3b97454376dd1f3b964c3749e6bc)
+- Add new supported models to page description and default share text for twitter [`8c1c0fd`](https://github.com/noeldelgado/yacc/commit/8c1c0fddce26204dd410a429bc1040979a5e44c8)
+
 ## [0.2.0] - [#5](../../pull/5) - 2020-03-01
 ### Added
 - Associated labels to inputs [`90cff5a`](https://github.com/noeldelgado/yacc/commit/90cff5a883c5e73464fc3d6177031d127b608441)
@@ -65,7 +70,8 @@
 ## 2013-10-03
 - Initial release
 
-[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/noeldelgado/yacc/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/noeldelgado/yacc/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/noeldelgado/yacc/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/noeldelgado/yacc/compare/v0.1.1...v0.1.2
