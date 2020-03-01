@@ -35,7 +35,7 @@ export default class FeColorMatrixInput {
      * @return {this}
      */
     setValue([r, g, b, a = 1]) {
-        this.config.el.value = this._getColorMatrixValue(r, g, b, a);
+        this.config.el.value = this._getColorMatrixValue(r, g, b, a).replace(/$\s+/gm, '\n');
         return this;
     }
 
@@ -50,8 +50,8 @@ export default class FeColorMatrixInput {
      */
     _getColorMatrixValue(...channels) {
         return `${internals.formatDecimals(channels[0])}\t0\t0\t0\t0
-            \n0\t${internals.formatDecimals(channels[1])}\t0\t0\t0
-            \n0\t0\t${internals.formatDecimals(channels[2])}\t0\t0
-            \n0\t0\t0\t${internals.formatDecimals(channels[3])}\t0`;
+            0\t${internals.formatDecimals(channels[1])}\t0\t0\t0
+            0\t0\t${internals.formatDecimals(channels[2])}\t0\t0
+            0\t0\t0\t${internals.formatDecimals(channels[3])}\t0`;
     }
 }
