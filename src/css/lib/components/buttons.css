@@ -1,8 +1,13 @@
 button {
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: inherit;
   font-weight: inherit;
+  padding: 0.5rem;
   border: 2px solid var(--cc-border-color);
-  background-color: var(--cc-text-color);
-  color: var(--cc-main-color);
+  background-color: transparent;
+  color: var(--cc-text-color);
+  border-radius: 3px;
   transition: all var(--cc-transition-duration) var(--cc-transition-timing);
   transition-property: color, background-color, border-color, box-shadow;
 
@@ -14,30 +19,23 @@ button {
     background-color: var(--cc-border-color);
     box-shadow: none;
   }
-}
 
-.cc-btn {
-  border-radius: 3px;
-  border: none;
-  padding: 0.5rem 1rem;
+  &.cc-btn {
+    border: none;
 
-  & > * {
-    display: inline-block;
-    vertical-align: middle;
+    & > * {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
-}
 
-button.cc-btn-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  padding: 0;
+  &.cc-btn-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    padding: 0;
 
-  &.cc-btn-sm {
-    width: 48px;
-    height: 48px;
-
-    & > svg {
+    & svg {
       display: block;
       margin: 0 auto;
     }

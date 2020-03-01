@@ -8,7 +8,8 @@
     "build": "npm run min-css && npm run min-js",
     "min-css": "uglify -s build/css/main.css -o build/css/main.css -c",
     "min-js": "uglify -s build/js/main.js -o build/js/main.js",
-    "svg": "svg-sprite -s --symbol-dest=svg-sprite-symbol --symbol-prefix=.svg- --ss=sprite.svg --si --sx --shape-id-generator=svg-%s --dest=src/assets src/assets/svg/*.svg"
+    "svg": "svg-sprite -s --symbol-dest=svg-sprite-symbol --symbol-prefix=.svg- --ss=sprite.svg --si --sx --shape-id-generator=svg-%s --dest=src/assets src/assets/svg/*.svg",
+    "docs": "jsdoc -c .jsdoc.json"
   },
   "author": "",
   "license": "MIT",
@@ -67,6 +68,9 @@
           ]
         },
         "postcss-cssnext": {
+          "browsers": [
+            "last 1 version"
+          ],
           "features": {
             "customProperties": false,
             "calc": false
@@ -86,6 +90,9 @@
             "browser"
           ]
         }
+      },
+      "buble": {
+        "objectAssign": "Object.assign"
       }
     }
   }

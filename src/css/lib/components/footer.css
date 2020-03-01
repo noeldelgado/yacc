@@ -1,0 +1,37 @@
+footer {
+  display: flex;
+  font-size: 0.75rem;
+  padding: 1.5rem 1rem 0;
+
+  & > .footer__info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 1rem;
+    margin-left: 1rem;
+
+    & > :not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 25%;
+      bottom: 25%;
+      border-left-width: 1px;
+      border-left-style: dotted;
+    }
+
+    @media (min-width: 768px) {
+      padding-left: 2rem;
+      margin-left: 2rem;
+
+      & > :not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+}
+
