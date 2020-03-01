@@ -1,6 +1,22 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Associated labels to inputs [90cff5a](90cff5a)
+- #RRGGBBAA support [a80b545](a80b545)
+  - Using Pickr’s [toHEXA](https://github.com/Simonwep/pickr/blob/master/src/js/utils/hsvacolor.js#L39) method
+  - Display Pickr’s opacity slider
+  - html’s checkerboard pattern to distinguish transparency
+- new CSS Variables `--cc-main-solid-color`
+- Mobile: apple-mobile-web-app-status-bar-style => black-translucent [0330ffe](0330ffe)
+- HSV, CMKYK and LAB support [a4560e6](a4560e6)
+
+### Changed
+- Fix Firefox 100% width input overflow [c4c80f0](c4c80f0)
+- Fix manually changing hash not updating UI [6e1f71f](6e1f71f)
+- Update autoprefixer:browsers 'last 1 version' [a487a4d](a487a4d)
+- Remove github-corner [4e0dd25](4e0dd25)
+- Initial random color [b663608](b663608)
 
 ## [0.1.3] - [#4](../../pull/4) - 2020-02-18
 ### Changed
