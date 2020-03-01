@@ -1,8 +1,10 @@
 ## yet another color converter
 
-Convert HEX/RGB/HSL/HWB color models plus feColorMatrix’s values
+Convert HEX/RGB/HSL/HWB color models plus feColorMatrix’s values.
 
 https://noeldelgado.github.io/yacc/
+
+![screenshot](public/images/screenshot.png)
 
 ### Development
 Start server on port 3000 with livereload watching files on the `src` folder
