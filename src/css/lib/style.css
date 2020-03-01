@@ -20,6 +20,7 @@ html {
 
 body {
   min-height: 100%;
+  font-weight: 700;
 
   color: var(--cc-text-color);
   background-color: var(--cc-main-color);
