@@ -1,6 +1,6 @@
 ## yet another color converter
 
-Convert HEX/RGB/HSL/HWB color models plus feColorMatrix’s values.
+Convert HEX, RGB, HSL, HWB, HSV, CMKYK, LAB color models plus feColorMatrix’s values.
 
 https://noeldelgado.github.io/yacc/
 
