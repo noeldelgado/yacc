@@ -228,9 +228,9 @@ export default class App {
         const cmyk = app.color.cmyk().round().array().toString();
         const lab = app.color.lab().round().array().toString();
 
-        const isLight = app.color.isLight();
-        const textColor = app.color.mix(Color(isLight? '#000' : '#fff'), 0.8);
-        const borderColor = app.color.mix(Color(isLight? '#000' : '#fff'), 0.2);
+        const mix = (app.color.isDark() && app.color.alpha() > 0.5)? '#fff' : '#000';
+        const textColor = app.color.mix(Color(mix), 0.8);
+        const borderColor = app.color.mix(Color(mix), 0.2);
 
         if (preventElementUpdate !== app.ui.hexInput.element)
             app.ui.hexInput.setValue(hexa.replace('#', ''));
