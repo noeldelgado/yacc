@@ -9,6 +9,11 @@ input.cc-input {
   outline: none;
   text-overflow: ellipsis;
 
+  &:focus {
+    text-decoration: underline;
+    text-decoration-color: var(--cc-border-color);
+  }
+
   &:invalid,
   &[aria-invalid="true"] {
     text-decoration: underline wavy red;
