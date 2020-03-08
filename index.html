@@ -15,12 +15,12 @@
   <meta name="twitter:image" content="https://noeldelgado.github.io/yacc/public/images/og-yacc-300x157.jpg">
   <link rel="preload" href="build/css/main.css" as="style">
   <link rel="preload" href="build/js/main.js" as="script">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="//fonts.googleapis.com">
   <link rel="apple-touch-icon" sizes="180x180" href="public/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon-16x16.png">
   <link rel="manifest" href="public/site.webmanifest">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap">
   <link rel="stylesheet" href="build/css/main.css" media="all">
 </head>
 <body class="df">
@@ -191,6 +191,19 @@
   <div class="toast-wrapper">
     <div class="toast"></div>
   </div>
-  <script src="build/js/main.js"></script>
+  <script src="build/js/main.js" defer></script>
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: ['Roboto+Mono:700&display=swap'] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
 </body>
 </html>

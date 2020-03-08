@@ -39,5 +39,9 @@ button {
       display: block;
       margin: 0 auto;
     }
+
+    &:hover {
+      background-color: var(--cc-border-color);
+    }
   }
 }
