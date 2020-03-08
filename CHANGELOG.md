@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.2.3] - [#7](../../pull/7) - 2020-03-08
+### Changed
+- eliminate render-blocking resources [`71dd00b`](https://github.com/noeldelgado/yacc/commit/71dd00b77809e03a9586d93015fc5f61a61be630)
+  - remove google fonts stylesheet
+  - preconnect {ajax,fonts}.googleapis
+  - load google font using WebFont api
+  - defer main script
+- hover style to main buttons [`ba264ef`](https://github.com/noeldelgado/yacc/commit/ba264efbc7b4b0a8b9310428a8500414a57f18a5)
+
 ## [0.2.2] - [#6](../../pull/6) - 2020-03-02
 ### Added
 - Focus style for inputs [`7bbbb31`](https://github.com/noeldelgado/yacc/commit/7bbbb315444100164eb1690211343d1b25572290)
@@ -84,7 +93,8 @@
 ## 2013-10-03
 - Initial release
 
-[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/noeldelgado/yacc/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/noeldelgado/yacc/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/noeldelgado/yacc/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/noeldelgado/yacc/compare/v0.1.3...v0.2.0
