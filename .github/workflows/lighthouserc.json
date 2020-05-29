@@ -7,6 +7,7 @@
     "assert": {
       "preset": "lighthouse:recommended",
       "assertions": {
+        "uses-rel-preconnect": "off",
         "offline-start-url": "off",
         "service-worker": "off",
         "works-offline": "off",
