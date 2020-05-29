@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./",
+      "staticDistDir": "./docs",
       "url": "/index.html#0000ff"
     },
     "assert": {
