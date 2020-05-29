@@ -1,0 +1,16 @@
+{
+  "homepage": "./",
+  "scripts": {
+    "build:css": "postcss",
+    "mount:public": "mount public --to /",
+    "mount:src": "mount src",
+    "mount:web_modules": "mount web_modules",
+    "bundle:.*": "@snowpack/plugin-parcel"
+  },
+  "plugins": [
+    "@snowpack/plugin-parcel"
+  ],
+  "devOptions": {
+    "out": "docs"
+  }
+}
