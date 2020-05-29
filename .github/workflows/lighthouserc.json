@@ -7,6 +7,9 @@
     "assert": {
       "preset": "lighthouse:recommended",
       "assertions": {
+        "offline-start-url": "off",
+        "service-worker": "off",
+        "works-offline": "off",
         "uses-passive-event-listeners": "off"
       }
     }
