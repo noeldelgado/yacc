@@ -4,7 +4,7 @@
  * @extends Input
  */
 import Color from 'color';
-import Input from '~/src/js/lib/components/input';
+import Input from './input';
 
 const internals = {
     /**

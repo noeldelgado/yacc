@@ -2,7 +2,7 @@
  * Inputs base class.
  * @module Input
  */
-import { debounce } from '~/src/js/lib/utils';
+import { debounce } from '../utils/index';
 
 export default class Input {
     /**

@@ -4,12 +4,13 @@
  */
 import Color from 'color';
 import Copy from 'copy-text-to-clipboard';
-import Pickr from '@simonwep/pickr/dist/pickr.es5.min';
-import InputHex from '~/src/js/lib/components/input-hex.js';
-import InputNumeric from '~/src/js/lib/components/input-numeric.js';
-import FeColorMatrixInput from '~/src/js/lib/components/fe-color-matrix-input.js';
-import Toast from '~/src/js/lib/components/toast.js';
-import { $, $$, autoBind, getRandomHex } from '~/src/js/lib/utils'
+import Pickr from '@simonwep/pickr';
+import InputHex from './components/input-hex';
+import InputNumeric from './components/input-numeric';
+import FeColorMatrixInput from './components/fe-color-matrix-input';
+import Toast from './components/toast';
+import { $, $$, autoBind, getRandomHex } from './utils/index';
+
 window.Color = Color;
 
 const internals = {
