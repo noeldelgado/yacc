@@ -3,11 +3,9 @@
   "name": "yacc",
   "version": "0.2.3",
   "scripts": {
-    "start": "npm run watch",
-    "watch": "tarima watch src",
-    "build": "npm run min-css && npm run min-js",
-    "min-css": "uglify -s build/css/main.css -o build/css/main.css -c",
-    "min-js": "uglify -s build/js/main.js -o build/js/main.js",
+    "prepare": "snowpack",
+    "start": "snowpack dev",
+    "build": "snowpack build",
     "svg": "svg-sprite -s --symbol-dest=svg-sprite-symbol --symbol-prefix=.svg- --ss=sprite.svg --si --sx --shape-id-generator=svg-%s --dest=src/assets src/assets/svg/*.svg",
     "docs": "jsdoc -c .jsdoc.json"
   },
