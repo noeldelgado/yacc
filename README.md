@@ -1,5 +1,7 @@
 ## yet another color converter
 
+![][github-actions-lighthouse-image]
+
 Convert HEX, RGB, HSL, HWB, HSV, CMKYK, LAB color models plus feColorMatrix’s values.
 
 https://noeldelgado.github.io/yacc/
@@ -29,3 +31,5 @@ To minify the `build/{js,css}/main.<ext>` files. Make sure you have `uglify` ins
 ```sh
 npm run build
 ```
+
+[github-actions-lighthouse-image]: https://github.com/noeldelgado/yacc/workflows/Lighthouse/badge.svg
