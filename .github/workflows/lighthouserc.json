@@ -1,0 +1,13 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./"
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "uses-passive-event-listeners": "off"
+      }
+    }
+  }
+}
