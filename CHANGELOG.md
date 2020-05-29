@@ -2,6 +2,25 @@
 
 ## [Unreleased]
 
+(feature/sp)
+### Added
+- .editorconfig
+
+### Changed
+- use snowpack
+- build GitHub Pages from `/docs` folder
+- use `eslint-config-rollup`
+
+(feature/Lighthouse-ci)
+### Added
+- lighthouse-ci github action
+- doc badges
+  - lighthouse-ci
+  - david’s
+  - snyk
+  - lgtm
+- lgtm.yml
+
 ## [0.2.3] - [#7](../../pull/7) - 2020-03-08
 ### Changed
 - eliminate render-blocking resources [`71dd00b`](https://github.com/noeldelgado/yacc/commit/71dd00b77809e03a9586d93015fc5f61a61be630)
