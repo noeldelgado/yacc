@@ -4,6 +4,8 @@
 [![Dependencies][david-image]][david-url]
 [![Dev Dependencies][david-dev-image]][david-dev-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
+[![Total alerts][lgtm-image]][lgtm-url]
+[![Language grade: JavaScript][lgtm-grade-image]][lgtm-grade-url]
 
 Convert HEX, RGB, HSL, HWB, HSV, CMKYK, LAB color models plus feColorMatrix’s values.
 
@@ -42,3 +44,7 @@ npm run build
 [david-dev-url]: https://david-dm.org/noeldelgado/yacc?type=dev
 [snyk-image]: https://snyk.io/test/github/noeldelgado/yacc/badge.svg
 [snyk-url]: https://snyk.io/test/github/noeldelgado/yacc
+[lgtm-image]: https://img.shields.io/lgtm/alerts/g/noeldelgado/yacc.svg?logo=lgtm&logoWidth=18
+[lgtm-url]: https://lgtm.com/projects/g/noeldelgado/yacc/alerts/
+[lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/yacc.svg?logo=lgtm&logoWidth=18
+[lgtm-grade-url]: https://lgtm.com/projects/g/noeldelgado/yacc/context:javascript
