@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "postcss": "6.0.23",
+    "postcss-cli": "^7.1.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^12.0.1",
