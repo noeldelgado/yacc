@@ -24,7 +24,6 @@
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^12.0.1",
-    "rollup": "^1.31.0",
     "snowpack": "^2.0.3"
   }
 }
