@@ -14,7 +14,7 @@ https://noeldelgado.github.io/yacc/
 ![screenshot](public/images/screenshot.png)
 
 ### Development
-Start server on port 3000 with livereload watching files on the `src` folder
+Start dev server on port 8080 with livereload watching files on the `src` folder
 
 ```sh
 npm install
@@ -31,7 +31,6 @@ If you need to add a new `.svg` files to the svg sprite located after the `body`
 - Copy the contents of that file and replace the `svg` line after the `body` 🙈
 
 ### Build
-To minify the `build/{js,css}/main.<ext>` files. Make sure you have `uglify` installed, e.i.: `npm i -g uglify` and then
 
 ```sh
 npm run build
