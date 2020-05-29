@@ -1,6 +1,8 @@
 ## yet another color converter
 
 ![][github-actions-lighthouse-image]
+[![Dependencies][david-image]][david-url]
+[![Dev Dependencies][david-dev-image]][david-dev-url]
 
 Convert HEX, RGB, HSL, HWB, HSV, CMKYK, LAB color models plus feColorMatrix’s values.
 
@@ -33,3 +35,7 @@ npm run build
 ```
 
 [github-actions-lighthouse-image]: https://github.com/noeldelgado/yacc/workflows/Lighthouse/badge.svg
+[david-image]: https://img.shields.io/david/noeldelgado/yacc.svg
+[david-url]: https://david-dm.org/noeldelgado/yacc
+[david-dev-image]: https://img.shields.io/david/dev/noeldelgado/yacc.svg
+[david-dev-url]: https://david-dm.org/noeldelgado/yacc?type=dev
