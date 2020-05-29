@@ -3,6 +3,7 @@ web_modules
 package-lock.json
 src/assets/svg-sprite-symbol/
 jsdoc
+.build
 .tarima
 .nvmrc
 .ruby-version
