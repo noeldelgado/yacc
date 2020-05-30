@@ -4,10 +4,10 @@
     "build:css": "postcss",
     "mount:public": "mount public --to /",
     "mount:src": "mount src",
-    "mount:web_modules": "mount web_modules",
-    "bundle:.*": "@snowpack/plugin-parcel"
+    "mount:web_modules": "mount web_modules"
   },
   "plugins": [
+    "@snowpack/plugin-babel",
     "@snowpack/plugin-parcel"
   ],
   "devOptions": {
