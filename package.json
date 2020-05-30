@@ -17,6 +17,8 @@
     "copy-text-to-clipboard": "^2.1.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-private-methods": "^7.10.1",
     "@snowpack/plugin-parcel": "^1.0.0",
     "babel-eslint": "^10.1.0",
     "eslint-config-rollup": "^0.1.0",
