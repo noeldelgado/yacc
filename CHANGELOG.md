@@ -2,6 +2,34 @@
 
 ## [Unreleased]
 
+(feature/sp)
+### Added
+- .editorconfig
+
+### Changed
+- use snowpack
+  - *build:js* `snowpack:plugin-babel` (`.babelrc`)
+    - babel/plugin-proposal-class-properties
+    - babel/plugin-proposal-private-methods
+  - *build:css* `postcss` (`.postcssrc`)
+  - *bundle:* `snowpack:plugin-parcel`
+    - `parcel-plugin-metaimage`
+    - `.htmlnanorc`
+- eslint
+  - parser: `babel-eslint`
+  - `eslint-config-rollup`
+- build GitHub Pages from `/docs` folder
+
+(feature/Lighthouse-ci)
+### Added
+- lighthouse-ci github action
+- doc badges
+  - lighthouse-ci
+  - david’s
+  - snyk
+  - lgtm
+- lgtm.yml
+
 ## [0.2.3] - [#7](../../pull/7) - 2020-03-08
 ### Changed
 - eliminate render-blocking resources [`71dd00b`](https://github.com/noeldelgado/yacc/commit/71dd00b77809e03a9586d93015fc5f61a61be630)

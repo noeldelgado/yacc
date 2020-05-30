@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Yet another color converter</title>
+  <title>Yet another color converter tool</title>
   <meta name="description" content="Convert HEX, RGB, HSL, HWB, HSV, CMYK, LAB color models plus feColorMatrix’s values">
   <meta name="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#ffffff">
+  <meta property="og:url" content="https://noeldelgado.github.io/yacc/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:creator" content="@pixelia_me">
   <meta name="twitter:title" content="Yet another color converter">
   <meta name="twitter:description" content="Convert HEX, RGB, HSL, HWB, HSV, CMYK, LAB color models plus feColorMatrix’s values">
-  <meta name="twitter:image" content="https://noeldelgado.github.io/yacc/public/images/og-yacc-300x157.jpg">
-  <link rel="preload" href="build/css/main.css" as="style">
-  <link rel="preload" href="build/js/main.js" as="script">
+  <meta name="twitter:image" content="./images/og-yacc-300x157.jpg">
+  <link rel="preload" href="./src/css/main.css" as="style">
+  <link rel="preload" href="./src/js/main.js" as="script">
   <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="//fonts.googleapis.com">
-  <link rel="apple-touch-icon" sizes="180x180" href="public/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon-16x16.png">
-  <link rel="manifest" href="public/site.webmanifest">
-  <link rel="stylesheet" href="build/css/main.css" media="all">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./src/css/main.css" media="all">
 </head>
 <body class="df">
   <svg width="0" height="0" aria-hidden="true" style="position:absolute"><symbol viewBox="0 0 24 24" id="svg-file_copy-outlined-24px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"/></symbol></svg>
@@ -191,7 +192,7 @@
   <div class="toast-wrapper">
     <div class="toast"></div>
   </div>
-  <script src="build/js/main.js" defer></script>
+  <script src="./src/js/main.js" type="module" defer></script>
   <script type="text/javascript">
     WebFontConfig = {
       google: { families: ['Roboto+Mono:700&display=swap'] }

@@ -3,3 +3,6 @@ extraction:
     index:
       filters:
         - exclude: "build"
+queries:
+   - exclude:
+      severity: "recommendation"
