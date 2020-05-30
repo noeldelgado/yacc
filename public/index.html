@@ -18,6 +18,8 @@
   <link rel="preload" href="./src/js/main.js" as="script">
   <link rel="preconnect" href="https://ajax.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -205,6 +207,22 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(wf, s);
     })();
+  </script>
+  <script type="text/javascript">
+    if (process.env.NODE_ENV === 'production') {
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.GA_KEY}`;
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', process.env.GA_KEY);
+      })();
+    }
   </script>
 </body>
 </html>
