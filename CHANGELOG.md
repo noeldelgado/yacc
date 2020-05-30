@@ -2,7 +2,32 @@
 
 ## [Unreleased]
 
-## [0.2.3] - [#7](../../pull/7) - 2020-03-08
+## [0.3.0] - [#11](https://github.com/noeldelgado/yacc/pull/11) - 2020-05-30
+### Added
+- lighthouse-ci github action
+- doc badges
+  - lighthouse-ci
+  - david’s
+  - snyk
+  - lgtm
+- lgtm.yml
+- .editorconfig
+
+### Changed
+- use snowpack
+  - *build:js* `snowpack:plugin-babel` (`.babelrc`)
+    - babel/plugin-proposal-class-properties
+    - babel/plugin-proposal-private-methods
+  - *build:css* `postcss` (`.postcssrc`)
+  - *bundle:* `snowpack:plugin-parcel`
+    - `parcel-plugin-metaimage`
+    - `.htmlnanorc`
+- eslint
+  - parser: `babel-eslint`
+  - `eslint-config-rollup`
+- build GitHub Pages from `/docs` folder
+
+## [0.2.3] - [#7](https://github.com/noeldelgado/yacc/pull/7) - 2020-03-08
 ### Changed
 - eliminate render-blocking resources [`71dd00b`](https://github.com/noeldelgado/yacc/commit/71dd00b77809e03a9586d93015fc5f61a61be630)
   - remove google fonts stylesheet
@@ -11,7 +36,7 @@
   - defer main script
 - hover style to main buttons [`ba264ef`](https://github.com/noeldelgado/yacc/commit/ba264efbc7b4b0a8b9310428a8500414a57f18a5)
 
-## [0.2.2] - [#6](../../pull/6) - 2020-03-02
+## [0.2.2] - [#6](https://github.com/noeldelgado/yacc/pull/6) - 2020-03-02
 ### Added
 - Focus style for inputs [`7bbbb31`](https://github.com/noeldelgado/yacc/commit/7bbbb315444100164eb1690211343d1b25572290)
 - Twitter summary card [`a4d1cda`](https://github.com/noeldelgado/yacc/commit/a4d1cda00b63d7a47ad73f8f033e27388384ce07)
@@ -26,7 +51,7 @@
 ### Fixed
 - feColorMatrix whitespace [`185a02e`](https://github.com/noeldelgado/yacc/commit/185a02e41a8c3b97454376dd1f3b964c3749e6bc)
 
-## [0.2.0] - [#5](../../pull/5) - 2020-03-01
+## [0.2.0] - [#5](https://github.com/noeldelgado/yacc/pull/5) - 2020-03-01
 ### Added
 - Associated labels to inputs [`90cff5a`](https://github.com/noeldelgado/yacc/commit/90cff5a883c5e73464fc3d6177031d127b608441)
 - #RRGGBBAA support [`a80b545`](https://github.com/noeldelgado/yacc/commit/a80b54514882fa478a242707547651fc0a49cc0d)
@@ -48,20 +73,20 @@
 - Manually changing hash not updating UI [`6e1f71f`](https://github.com/noeldelgado/yacc/commit/6e1f71f168cba2f162780f0a17e6ddb23c6f4b04)
 - Firefox 100% width input overflow [`c4c80f0`](https://github.com/noeldelgado/yacc/commit/c4c80f0eb412951ec4efd1e6376ebc156b557261)
 
-## [0.1.3] - [#4](../../pull/4) - 2020-02-18
+## [0.1.3] - [#4](https://github.com/noeldelgado/yacc/pull/4) - 2020-02-18
 ### Fixed
 - Fix site.webmanifest paths
 
-## [0.1.2] - [#3](../../pull/3) - 2020-02-18
+## [0.1.2] - [#3](https://github.com/noeldelgado/yacc/pull/3) - 2020-02-18
 ### Fixed
 - site.webmanifest paths
 - History navigation
 
-## [0.1.1] - [#2](../../pull/2) - 2020-02-18
+## [0.1.1] - [#2](https://github.com/noeldelgado/yacc/pull/2) - 2020-02-18
 ### Fixed
 - Fix assets path
 
-## [0.1.0] - [#1](../../pull/1) - 2020-02-18
+## [0.1.0] - [#1](https://github.com/noeldelgado/yacc/pull/1) - 2020-02-18
 ### Added
 - HWB color model
 - feColorMatrix’s values
@@ -94,6 +119,7 @@
 - Initial release
 
 [Unreleased]: https://github.com/noeldelgado/yacc/compare/v0.2.3...HEAD
+[0.3.0]: https://github.com/noeldelgado/yacc/compare/v0.2.3...v0.3.0
 [0.2.3]: https://github.com/noeldelgado/yacc/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/noeldelgado/yacc/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/noeldelgado/yacc/compare/v0.2.0...v0.2.1

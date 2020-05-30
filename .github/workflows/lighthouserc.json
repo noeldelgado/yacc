@@ -1,0 +1,18 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./docs",
+      "url": "/index.html#0000ff"
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "uses-rel-preconnect": "off",
+        "offline-start-url": "off",
+        "service-worker": "off",
+        "works-offline": "off",
+        "uses-passive-event-listeners": "off"
+      }
+    }
+  }
+}

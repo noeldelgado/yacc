@@ -1,0 +1,14 @@
+{
+  "plugins": {
+    "postcss-import": {
+      "path": ["src/css", "node_modules"]
+    },
+      "postcss-cssnext": {
+        "features": {
+          "customProperties": false,
+          "calc": false
+        }
+      },
+      "postcss-discard-comments": {}
+  }
+}

@@ -1,18 +1,13 @@
-/**
----
-$bundle: true
----
-*/
 @import '@simonwep/pickr/dist/themes/nano.min.css';
-@import '../lib/vendor-overrides/pickr';
-@import '../lib/components/header';
-@import '../lib/components/footer';
-@import '../lib/components/buttons';
-@import '../lib/components/inputs';
-@import '../lib/components/color-item';
-@import '../lib/components/toast';
-@import '../lib/utils';
-@import '../lib/style';
+@import 'lib/vendor-overrides/pickr.css';
+@import 'lib/components/header.css';
+@import 'lib/components/footer.css';
+@import 'lib/components/buttons.css';
+@import 'lib/components/inputs.css';
+@import 'lib/components/color-item.css';
+@import 'lib/components/toast.css';
+@import 'lib/utils.css';
+@import 'lib/style.css';
 
 :root {
   --cc-main-color: #fff;

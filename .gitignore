@@ -1,8 +1,8 @@
 node_modules
+web_modules
 package-lock.json
 src/assets/svg-sprite-symbol/
 jsdoc
-.tarima
-.nvmrc
-.ruby-version
+.build
+.env
 .DS_Store
