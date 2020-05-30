@@ -135,7 +135,7 @@ export default class App {
   #bindEvents() {
     const app = this;
 
-    app.ui.randomButton.addEventListener('click', app.#randomClickHandler);
+    app.ui.randomButton.addEventListener('click', app.#randomClickHandler.bind(this));
 
     Array.from(app.ui.copyToClipboardButtons, (el) => {
       el.addEventListener('click', app.#copyColorToClipboardHandler.bind(this));
