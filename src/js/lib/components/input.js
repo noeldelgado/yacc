@@ -70,6 +70,7 @@ export default class Input {
    * @private
    * @return {this}
    */
+  /* eslint-disable-next-line no-undef */
   #bindEvents() {
     const input = this;
 
@@ -94,6 +95,7 @@ export default class Input {
    * @private
    * @return {boolean}
    */
+  /* eslint-disable-next-line no-undef */
   #hasChanged() {
     return this.latestValidValue !== this.validFormat;
   }
@@ -103,6 +105,7 @@ export default class Input {
    * @private
    * @emits {validChange} if the `config.validate` function resolves with a truthy value and the input’s value is different than the previously emitted value.
    */
+  /* eslint-disable-next-line no-undef */
   #inputHandler() {
     const input = this;
 
@@ -124,7 +127,8 @@ export default class Input {
    * Restores the latest valid value if needed.
    * @private
    */
-  #blurHandler() { /* eslint-disable-line */
+  /* eslint-disable-next-line no-undef */
+  #blurHandler() {
     const input = this;
     const { validFormat } = input;
 

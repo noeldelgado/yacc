@@ -132,6 +132,7 @@ export default class App {
    * @private
    * @return {this}
    */
+  /* eslint-disable-next-line no-undef */
   #bindEvents() {
     const app = this;
 
@@ -167,6 +168,7 @@ export default class App {
    * If the copy was successful a message is displayed to the user.
    * @private
    */
+  /* eslint-disable-next-line no-undef */
   #copyColorToClipboardHandler(ev) {
     const [property, selector] = ev.currentTarget.dataset.copy.split(':');
     const value = $(selector)[property];
@@ -181,6 +183,7 @@ export default class App {
    * Calls app.#updateUI passing a random hex string as param.
    * @private
    */
+  /* eslint-disable-next-line no-undef */
   #randomClickHandler() {
     this.#updateUI(getRandomHex());
   }
@@ -190,6 +193,7 @@ export default class App {
    * Calls app.#updateUI passing the color received on the events’s detail and the referece to the input as params.preventElementUpdate for the input itself to not be updated.
    * @private
    */
+  /* eslint-disable-next-line no-undef */
   #isInputValidHandler(ev) {
     this.#updateUI(ev.detail.color(), {
       preventElementUpdate: ev.target
@@ -203,6 +207,7 @@ export default class App {
    * Updates the UI with the passed color and preventHistoryUpdate otherwise.
    * @private
    */
+  /* eslint-disable-next-line no-undef */
   #popStateHandler(ev) {
     let color = (ev.state && ev.state.color) || location.hash;
 
@@ -223,6 +228,7 @@ export default class App {
    * @param {HTMLInputElement=} params.preventElementUpdate - This input element will not be updated.
    * @private
    */
+  /* eslint-disable-next-line no-undef */
   #updateUI(color = '#000000', params = {}) {
     const { preventHistoryUpdate = false, preventElementUpdate } = params;
     const app = this;

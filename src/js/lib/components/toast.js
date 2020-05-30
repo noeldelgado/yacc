@@ -43,7 +43,7 @@ export default class Toast {
     }
 
     toast.#timeout = setTimeout(() => {
-      clearTimeout(toast.#timeout); /* eslint-disable-line */
+      clearTimeout(toast.#timeout);
       toast.config.el.classList.remove('show');
     }, toast.config.duration);
 
