@@ -8,8 +8,17 @@
 
 ### Changed
 - use snowpack
+  - *build:js* `snowpack:plugin-babel` (`.babelrc`)
+    - babel/plugin-proposal-class-properties
+    - babel/plugin-proposal-private-methods
+  - *build:css* `postcss` (`.postcssrc`)
+  - *bundle:* `snowpack:plugin-parcel`
+    - `parcel-plugin-metaimage`
+    - `.htmlnanorc`
+- eslint
+  - parser: `babel-eslint`
+  - `eslint-config-rollup`
 - build GitHub Pages from `/docs` folder
-- use `eslint-config-rollup`
 
 (feature/Lighthouse-ci)
 ### Added
