@@ -5,7 +5,8 @@
   "scripts": {
     "prepare": "snowpack",
     "start": "snowpack dev",
-    "build": "snowpack build && rm -rf docs/{images,src,web_modules}",
+    "build": "snowpack build",
+    "postbuild": "rm -rf docs/{images,src,web_modules}",
     "lint": "eslint .",
     "svg": "svg-sprite -s --symbol-dest=svg-sprite-symbol --symbol-prefix=.svg- --ss=sprite.svg --si --sx --shape-id-generator=svg-%s --dest=src/assets src/assets/svg/*.svg",
     "docs": "jsdoc -c .jsdoc.json"
