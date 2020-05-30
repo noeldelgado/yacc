@@ -1,6 +1,12 @@
 {
   "parser": "babel-eslint",
   "extends": "rollup",
+  "ignorePatterns": [
+    "node_modules/",
+    "web_modules/",
+    "docs/",
+    "jsdoc/"
+  ],
   "env": {
     "browser": true,
     "node": true
