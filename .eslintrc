@@ -1,3 +1,8 @@
 {
-  "extends": "rollup"
+  "parser": "babel-eslint",
+  "extends": "rollup",
+  "env": {
+    "browser": true,
+    "node": true
+  }
 }

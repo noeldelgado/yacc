@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-parcel": "^1.0.0",
+    "babel-eslint": "^10.1.0",
     "eslint-config-rollup": "^0.1.0",
     "postcss": "6.0.23",
     "postcss-cli": "^7.1.1",
